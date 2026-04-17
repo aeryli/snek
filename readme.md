@@ -1,3 +1,3 @@
 # SNEK
 
-aeryli.github.io/snek/snekURL/txt
+[here](aeryli.github.io/snek/snekURL/txt)
