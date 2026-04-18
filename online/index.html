@@ -5,6 +5,7 @@
     
     <script> 
         const tps = 6
+        let canvas = document.getElementById("canvas")
         let ctx = canvas.getContext("2d"); 
         let snake = [[8,8]], apple = [4,4], [dx,dy] = [0,0]; 
         onkeydown = ({key}) => [dx,dy] = { [key]: [dx,dy], ArrowRight:[dx||1, 0], ArrowLeft:[dx||-1, 0] 
