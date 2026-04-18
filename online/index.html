@@ -1,24 +1,50 @@
-<script>const tps = 6</script><title>snek</title><link rel="icon" href="http://cdn-icons-png.flaticon.com/512/528/528105.png"><canvas id="canvas" width="256" height="256" style="background: black;"> <script> let ctx   = canvas.getContext("2d"); let snake = [[8,8]], apple = [4,4], [dx,dy] = [0,0]; onkeydown = ({key}) => [dx,dy] = { [key]: [dx,dy], ArrowRight:[dx||1, 0], ArrowLeft:[dx||-1, 0] , ArrowDown: [0, dy||1], ArrowUp:  [0, dy||-1] }[key]; setInterval(() => { snake.unshift([ (snake[0][0] + dx) & 15, (snake[0][1] + dy) & 15 ]); if(""+snake[0] == apple) with(Math) do apple = [ floor(random()*16), floor(random()*16) ]; while(snake.some(seg => ""+seg == apple)); else if(snake.slice(1).some(seg => ""+seg == snake[0])) snake.splice(1); else snake.pop(); ctx.clearRect(0, 0, 256, 256); ctx.fillStyle = "red"; ctx.fillRect(apple[0]*16, apple[1]*16, 16, 16); ctx.fillStyle = "lime"; snake.forEach(([x,y]) => ctx.fillRect(x*16, y*16, 16, 16)); }, (1000/tps)); </script>a
-<style>
-    .m {
-      display: inline-block;
-      background-color: #FF8C1A;
-      border-radius: 30px;
-      font-size: 16.2pt;
-      color: white;
-      font-weight: 500;
-      padding-top: 14px;
-      padding-bottom: 14px;
-      padding-left: 16px;
-      padding-right: 16px;
-      text-decoration: none;
-      white-space: pre;
-      margin: 5px;
-    }
-    body {
-      font-family: "Helvetica Neue", Helvetica, sans-serif;
-    }
-</style>
+<head>
+
+    <title>snek</title>
+    <link rel="icon" href="http://cdn-icons-png.flaticon.com/512/528/528105.png">
+    
+    <script> 
+        const tps = 6
+        let ctx = canvas.getContext("2d"); 
+        let snake = [[8,8]], apple = [4,4], [dx,dy] = [0,0]; 
+        onkeydown = ({key}) => [dx,dy] = { [key]: [dx,dy], ArrowRight:[dx||1, 0], ArrowLeft:[dx||-1, 0] 
+                                          , ArrowDown: [0, dy||1], ArrowUp:  [0, dy||-1] }[key];
+        setInterval(() => { 
+            snake.unshift([ (snake[0][0] + dx) & 15, (snake[0][1] + dy) & 15 ]);
+            if(""+snake[0] == apple) 
+                with(Math) do apple = [ floor(random()*16), floor(random()*16) ]; 
+                while(snake.some(seg => ""+seg == apple)); 
+            else if(snake.slice(1).some(seg => ""+seg == snake[0]))
+                snake.splice(1); else snake.pop();
+            ctx.clearRect(0, 0, 256, 256);
+            ctx.fillStyle = "red";
+            ctx.fillRect(apple[0]*16, apple[1]*16, 16, 16);
+            ctx.fillStyle = "lime";
+            snake.forEach(([x,y]) => ctx.fillRect(x*16, y*16, 16, 16)); 
+        }, (1000/tps)); 
+    </script>
+    <style>
+        .m {
+          display: inline-block;
+          background-color: #FF8C1A;
+          border-radius: 30px;
+          font-size: 16.2pt;
+          color: white;
+          font-weight: 500;
+          padding-top: 14px;
+          padding-bottom: 14px;
+          padding-left: 16px;
+          padding-right: 16px;
+          text-decoration: none;
+          white-space: pre;
+          margin: 5px;
+        }
+        body {
+          font-family: "Helvetica Neue", Helvetica, sans-serif;
+        }
+    </style>
+</head>
 <body>
   <a href="https://aeryli.github.io/snek/" class="m">Return</a>
+    <canvas id="canvas" width="256" height="256" style="background: black;">
 </body>
