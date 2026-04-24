@@ -1,7 +1,7 @@
 class kboard {
   press(key, code, keycode) {
-    const body = document.body;
-    const keyEvent = new KeyboardEvent('keydown', {
+    let body = document.body;
+    let keyEvent = new KeyboardEvent('keydown', {
         key: key,
         code: code,
         keyCode: keycode,
