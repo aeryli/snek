@@ -37,7 +37,7 @@ class kboard {
         cancelable: true
     });
     
-    inputField.dispatchEvent(body);
+    body.dispatchEvent(keyEvent);
 
   };
 };
