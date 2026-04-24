@@ -38,5 +38,5 @@ class kboard {
     
     inputField.dispatchEvent(keyEvent);
 
-  }
-}
+  };
+};
