@@ -25,7 +25,7 @@ class keys {
   };
 }
 class kboard {
-  function press(key) {
+  press(key) {
     let body = document.body;
     let keys = new keys();
     let keyEvent = new KeyboardEvent('keydown', {
