@@ -24,15 +24,15 @@ class keys {
     };
   };
 }
-const keys = new keys();
+const kys = new keys();
 class kboard {
   press(key) {
     let body = document.body;
     //let keys = new keys();
     let keyEvent = new KeyboardEvent('keydown', {
-        key: keys.arrows[key].keyName,
-        code: keys.arrows[key].keyName,
-        keyCode: keys.arrows[key].keyCode,
+        key: kys.arrows[key].keyName,
+        code: kys.arrows[key].keyName,
+        keyCode: kys.arrows[key].keyCode,
         bubbles: true,
         cancelable: true
     });
