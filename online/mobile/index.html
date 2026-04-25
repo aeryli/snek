@@ -9,6 +9,7 @@
       <button onclick="kbord.press('left')">←</button>
       <button onclick="kbord.press('down')">↓</button>
       <button onclick="kbord.press('right')">→</button>
+      <input type="text" name="tps" placeholder="6" id="intps"></input>
     </div>
   </div>
 </body>
@@ -19,26 +20,30 @@
     <script src="mousetrap.min.js"></script>
     <script src="keyboard.js"></script>
     <script>const kbord = new kboard();</script>
-    <script> 
-        const tps = 6
-        let canvas = document.getElementById("canvas")
-        let ctx = canvas.getContext("2d"); 
-        let snake = [[8,8]], apple = [4,4], [dx,dy] = [0,0]; 
-        onkeydown = ({key}) => [dx,dy] = { [key]: [dx,dy], ArrowRight:[dx||1, 0], ArrowLeft:[dx||-1, 0] 
-                                          , ArrowDown: [0, dy||1], ArrowUp:  [0, dy||-1] }[key];
-        setInterval(() => { 
-            snake.unshift([ (snake[0][0] + dx) & 15, (snake[0][1] + dy) & 15 ]);
-            if(""+snake[0] == apple) 
-                with(Math) do apple = [ floor(random()*16), floor(random()*16) ]; 
-                while(snake.some(seg => ""+seg == apple)); 
-            else if(snake.slice(1).some(seg => ""+seg == snake[0]))
-                snake.splice(1); else snake.pop();
-            ctx.clearRect(0, 0, 256, 256);
-            ctx.fillStyle = "red";
-            ctx.fillRect(apple[0]*16, apple[1]*16, 16, 16);
-            ctx.fillStyle = "lime";
-            snake.forEach(([x,y]) => ctx.fillRect(x*16, y*16, 16, 16)); 
-        }, (1000/tps)); 
+    <script>
+      const tpsv = document.getElementById("intps");
+      tpsv.addEventListener("onchange", function() {
+        let tps = tpsv.value;
+      });
+      let tps = 6;
+      let canvas = document.getElementById("canvas");
+      let ctx = canvas.getContext("2d"); 
+      let snake = [[8,8]], apple = [4,4], [dx,dy] = [0,0]; 
+      onkeydown = ({key}) => [dx,dy] = { [key]: [dx,dy], ArrowRight:[dx||1, 0], ArrowLeft:[dx||-1, 0] 
+                                        , ArrowDown: [0, dy||1], ArrowUp:  [0, dy||-1] }[key];
+      setInterval(() => { 
+          snake.unshift([ (snake[0][0] + dx) & 15, (snake[0][1] + dy) & 15 ]);
+          if(""+snake[0] == apple) 
+              with(Math) do apple = [ floor(random()*16), floor(random()*16) ]; 
+              while(snake.some(seg => ""+seg == apple)); 
+          else if(snake.slice(1).some(seg => ""+seg == snake[0]))
+              snake.splice(1); else snake.pop();
+          ctx.clearRect(0, 0, 256, 256);
+          ctx.fillStyle = "red";
+          ctx.fillRect(apple[0]*16, apple[1]*16, 16, 16);
+          ctx.fillStyle = "lime";
+          snake.forEach(([x,y]) => ctx.fillRect(x*16, y*16, 16, 16)); 
+      }, (1000/tps)); 
     </script>
     <style>
         .m {
