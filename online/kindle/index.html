@@ -9,7 +9,6 @@
       <button onclick="kbord.press('left')">←</button>
       <button onclick="kbord.press('down')">↓</button>
       <button onclick="kbord.press('right')">→</button>
-      <input type="number" name="tps" value="6" id="intps" onchange="let tps = tpsv.value;" style="width=128"></input>
     </div>
   </div>
 </body>
@@ -22,10 +21,7 @@
     <script>const kbord = new kboard();</script>
     <script>
       const tpsv = document.getElementById("intps");
-      let tps = 6;
-      tpsv.addEventListener("change", function() {
-        let tps = tpsv.value;
-      });
+      let tps = prompt("tps", 6);
       let canvas = document.getElementById("canvas");
       let ctx = canvas.getContext("2d"); 
       let snake = [[8,8]], apple = [4,4], [dx,dy] = [0,0]; 
@@ -43,7 +39,6 @@
           ctx.fillRect(apple[0]*16, apple[1]*16, 16, 16);
           ctx.fillStyle = "lime";
           snake.forEach(([x,y]) => ctx.fillRect(x*16, y*16, 16, 16)); 
-          let tps = tpsv.value;
       }, (1000/tps)); 
     </script>
     <style>
