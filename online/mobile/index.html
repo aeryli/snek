@@ -9,7 +9,7 @@
       <button onclick="kbord.press('left')">←</button>
       <button onclick="kbord.press('down')">↓</button>
       <button onclick="kbord.press('right')">→</button>
-      <input type="text" name="tps" placeholder="6" id="intps"></input>
+      <input type="number" name="tps" placeholder="6" id="intps"></input>
     </div>
   </div>
 </body>
@@ -22,7 +22,7 @@
     <script>const kbord = new kboard();</script>
     <script>
       const tpsv = document.getElementById("intps");
-      tpsv.addEventListener("onchange", function() {
+      tpsv.onchange = function() {
         let tps = tpsv.value;
       });
       let tps = 6;
