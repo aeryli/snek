@@ -1,12 +1,14 @@
 <body>
   <a href="https://aeryli.github.io/snek/" class="m">Return</a> <br>
   <canvas id="canvas" width="256" height="256" style="background: black;"></canvas>
-  <br><button class="spacer">←</button>
-  <button onclick="kbord.press('up')">↑</button>
-  <button class=spacer>→</button><br>
-  <button onclick="kbord.press('left')">←</button>
-  <button onclick="kbord.press('down')">↓</button>
-  <button onclick="kbord.press('right')">→</button>
+  <div class="centar">
+    <br><button class="spacer">←</button>
+    <button onclick="kbord.press('up')">↑</button>
+    <button class=spacer>→</button><br>
+    <button onclick="kbord.press('left')">←</button>
+    <button onclick="kbord.press('down')">↓</button>
+    <button onclick="kbord.press('right')">→</button>
+  </div>
 </body>
 <head>
 
@@ -64,6 +66,11 @@
           color: rgb(240, 240, 240);
           padding: 10px;
           border: 0px;
+        }
+        .centar {
+          display: grid;
+          place-items: center;
+          height: 100vh;
         }
     </style>
 </head>
