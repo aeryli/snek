@@ -22,10 +22,10 @@
     <script>const kbord = new kboard();</script>
     <script>
       const tpsv = document.getElementById("intps");
-      tpsv.addEventListener("change", function() {
-        const tps = tpsv.value;
-      });
       let tps = 6;
+      tpsv.addEventListener("change", function() {
+        let tps = tpsv.value;
+      });
       let canvas = document.getElementById("canvas");
       let ctx = canvas.getContext("2d"); 
       let snake = [[8,8]], apple = [4,4], [dx,dy] = [0,0]; 
